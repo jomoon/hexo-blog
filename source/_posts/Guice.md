@@ -1,7 +1,7 @@
 ---
 title: Guice Translation
 ---
-translation from [google/guice]{https://github.com/google/guice/wiki/Motivation}
+translation from [google/guice](https://github.com/google/guice/wiki/Motivation)
 
 ## 动机
 
