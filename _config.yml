@@ -4,11 +4,11 @@
 
 # Site
 title: Zain's Blog
-subtitle:
-description:
-keywords:
+subtitle: 
+description: 用于翻译一些官方文档
+keywords: zain,翻译,Spring,guice
 author: Huangjiangjun
-language:
+language: chinese
 timezone:
 
 # URL
