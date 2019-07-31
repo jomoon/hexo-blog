@@ -1,5 +1,8 @@
 ---
 title: Guice Translation Bindings
+categories:
+- guice
+- translation
 ---
 translation from [google/guice](https://github.com/google/guice/wiki/LinkedBindings)
 

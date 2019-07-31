@@ -1,5 +1,9 @@
 ---
 title: Spring core Translation 
+categories:
+- spring core
+- translation
+toc: true
 ---
 translation from [spring/core](https://docs.spring.io/spring/docs/5.1.8.RELEASE/spring-framework-reference/core.html#spring-core)
 
@@ -11,11 +15,12 @@ translation from [spring/core](https://docs.spring.io/spring/docs/5.1.8.RELEASE/
 
 spring通过AspectJ来全面覆盖AOP(最为丰富的 - 在特征方面 - 且是在java企业开发中最成熟的AOP实现）
 
-1. 控制反转容器
+### 控制反转容器
 
 这一章包含Spring的控制反转(IoC)容器
 
-1.1  介绍Spring控制反转容器和实例。这一章包含了控制反转(IoC)的实现：Spring框架。控制反转也被人所知为依赖注入(DI)。这是一个凭借对象和其依赖（依赖意味着其他与之一起工作的对象）仅通过构造参数，工厂方法参数，或是构造之后，从工厂返回的实例将属性塞入。容器而后要创建实例时注入了这些所需的依赖。这个过程基本上就是反转(因此其名字叫做，控制反转)实例本身，控制安装或通过使用直接构造器或其他机制例如（Service Locator pattern）定位其依赖。
+#### 介绍Spring控制反转容器和实例
+  介绍Spring控制反转容器和实例。这一章包含了控制反转(IoC)的实现：Spring框架。控制反转也被人所知为依赖注入(DI)。这是一个凭借对象和其依赖（依赖意味着其他与之一起工作的对象）仅通过构造参数，工厂方法参数，或是构造之后，从工厂返回的实例将属性塞入。容器而后要创建实例时注入了这些所需的依赖。这个过程基本上就是反转(因此其名字叫做，控制反转)实例本身，控制安装或通过使用直接构造器或其他机制例如（Service Locator pattern）定位其依赖。
 
 `org.springframework.beans` 和 `org.springframework.context` 包是Spring框架控制反转容器的基础包。`BeanFactory`接口提供了 一个增强的配置文件机制且有能力管理任何类型的对象。`ApplicationContext` 是`BeanFactory`其子接口。 他增加了如下：
 
@@ -32,7 +37,7 @@ spring通过AspectJ来全面覆盖AOP(最为丰富的 - 在特征方面 - 且是
 在Spring中，那些作为你应用的核心组成的且被SpringIoC所管理的对象叫做组件。一个组件是之那些被实例化的，装配的或是被Spring IoC容器所管理的。然而，一个组件可能仅仅是你应用中多个对象中的一个。组件们和他们所需要的依赖，都将解析到配置元数据中，给容器使用。
 
 
-1.2. 容器总览
+#### 容器总览
 
 `org.springframework.context.ApplicationContext`接口代表着Spring IoC容器并且对组件的安装，配置，组装负责。容器拥有如何初始化，配置和装配此实例的说明（通过读取配置元数据）。配置元数据表现在XML，Java注解，或是java代码中。这些配置是用作于编排你的应用中实例的相互依赖关系。
 
@@ -45,7 +50,7 @@ spring通过AspectJ来全面覆盖AOP(最为丰富的 - 在特征方面 - 且是
 
 ![运作方式](https://docs.spring.io/spring/docs/5.1.8.RELEASE/spring-framework-reference/images/container-magic.png)
 
-1.2.1 配置元数据
+#### 配置元数据
 
 如之前图表所展示的，Spring IoC容器消费配置元数据。配置元数据表示你,作为一个应用开发者,告诉Spring 容器来如何在你的应用中安装配置组装对象.
 
@@ -88,7 +93,7 @@ Spring配置认为至少一个或常常不仅仅一个组件定义都被Spring�
 ```
 id 标签的值指向协作对象,XML中引用协作对象在此例子中并不会展示,在`Dependecies`中查看更多信息.
 
-1.2.2. 实例化容器
+#### 实例化容器
 
 位置路径或是多个位置路径作为`ApplicationContext`构造函数让容器加载配置元数据从各种个样的额外的资源,例如本地文件系统,或是Java CLASSPATH 等等.
 ```java

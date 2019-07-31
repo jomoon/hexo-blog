@@ -7,7 +7,7 @@ title: Zain's Blog
 subtitle: 
 description: 用于翻译一些官方文档
 keywords: zain,翻译,Spring,guice
-author: Huangjiangjun
+author: Zain
 language: chinese
 timezone:
 
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: polarbear
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
