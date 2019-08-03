@@ -1,5 +1,8 @@
 ---
 title: Guice Translation
+categories:
+- guice
+- translation
 ---
 translation from [google/guice](https://github.com/google/guice/wiki/Motivation)
 

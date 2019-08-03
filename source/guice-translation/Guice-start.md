@@ -1,5 +1,8 @@
 ---
 title: Guice Translation 02
+categories:
+- guice
+- translation
 ---
 
 translation from [google/guice](https://github.com/google/guice/wiki/GettingStarted) and [google/guice/bindings](https://github.com/google/guice/wiki/Bindings)

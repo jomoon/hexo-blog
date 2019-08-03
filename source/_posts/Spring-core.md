@@ -167,5 +167,8 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
 
 之前的例子中,外部的组件定义从三个文件中被加载 `services.xml`, `messageSource.xml` 和 `themeSource.xml`.所有文件都是以当前正在导入的文件所相关的,所以 `services.xml`必须与当前导入文件的处于相同的文件夹中或是在classPath中,而messageSource.xml 和 themeSource.xml 必须在导入文件的资源文件位置下面.就如你所能看到的,将会忽略最前面的"/".然而给的这些路径都是相对路径,最好不要使用“/”.文件所要导入的内容,包括最高层的`<bean/>`元素,必须是有效的XML实例定义,依据Spring模式.
 
+>   虽然可以但是不建议,引用文件通过使用相对路径“../”,这样做将会使你的应用依赖于一个外部文件.尤其不建议你使用Classpath: URLS (例如:classpath:../services.xml),当运行时解析器选择一个“最为相近的”类路径根而后找到了父类的文件夹中.类配置的改变可能会导致你选择了错的文件夹.
 
+你可以总使用全路径来做而非使用相对路径,例如(file:C:/config/services.xml 或是 classpath:/config/services.xml),要注意你的应用和一些绝对路径下的文件产生了耦合,通常使用"${…​}" 占位符来间接性的使用绝对路径,通过jvm解析系统变量.
 
+命名空间本身提供导入指令特征。更多配置
