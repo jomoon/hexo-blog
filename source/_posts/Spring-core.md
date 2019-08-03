@@ -171,4 +171,31 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
 
 你可以总使用全路径来做而非使用相对路径,例如(file:C:/config/services.xml 或是 classpath:/config/services.xml),要注意你的应用和一些绝对路径下的文件产生了耦合,通常使用"${…​}" 占位符来间接性的使用绝对路径,通过jvm解析系统变量.
 
-命名空间本身提供导入指令特征。更多配置
+命名空间本身提供导入指令特征。更多超出普通实例定义的配置特性，使用Spring所提供的XML命名空间，例如，`context`和`util`命名空间。
+
+##### Groovy实例定义 DSL
+作为一个外部配置元数据的进一步例子，实例定义也可以通过` Spring’s Groovy Bean Definition DSL`来表达。众所周知的Grails 框架，通常配置在'.groovy'文件结构如下：
+```java
+beans {
+    dataSource(BasicDataSource) {
+        driverClassName = "org.hsqldb.jdbcDriver"
+        url = "jdbc:hsqldb:mem:grailsDB"
+        username = "sa"
+        password = ""
+        settings = [mynew:"setting"]
+    }
+    sessionFactory(SessionFactory) {
+        dataSource = dataSource
+    }
+    myService(MyService) {
+        nestedBean = { AnotherBean bean ->
+            dataSource = dataSource
+        }
+    }
+}
+```
+
+这个配置风格很大程度与XML实例定义相当，甚至都支持Spring XML配置命名空间。此方式也允许通过直接使用`importBeans`来导入XML实例定义。
+
+
+#### 1.2.3 Using the Container 使用容器
