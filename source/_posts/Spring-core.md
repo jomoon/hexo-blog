@@ -199,3 +199,75 @@ beans {
 
 
 #### 1.2.3 Using the Container 使用容器
+
+`ApplicationContext`是一个有能力维护不同组件及其依赖的高级工厂接口。通过使用方法`T getBean(String name, Class<T> requiredType)`，你可以重新获取你的组件实例。
+
+`ApplicationContext`让你可以读取组件定义和有权使用他们，就如下例子：
+```java
+// create and configure beans
+ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+
+// retrieve configured instance
+PetStoreService service = context.getBean("petStore", PetStoreService.class);
+
+// use configured instance
+List<String> userList = service.getUsernameList();
+```
+
+用Groovy配置，启动起来相似。它有不同的上下文实现（但可以与XML组件定义认为是一致的），如下例子展示的是 Groovy 配置
+`ApplicationContext context = new GenericGroovyApplicationContext("services.groovy", "daos.groovy");`
+
+最为灵活的变种 `GenericApplicationContext`和读取委派者结合，例如，通过给XML文件`XmlBeanDefinitionReader`，就如下例子：
+
+```java
+GenericApplicationContext context = new GenericApplicationContext();
+new XmlBeanDefinitionReader(context).loadBeanDefinitions("services.xml", "daos.xml");
+context.refresh();
+```
+
+对于Groovy文件，你也可以使用`GroovyBeanDefinitionReader`，如以下例子：
+```java
+GenericApplicationContext context = new GenericApplicationContext();
+new GroovyBeanDefinitionReader(context).loadBeanDefinitions("services.groovy", "daos.groovy");
+context.refresh();
+```
+
+你可以在同一个`ApplicationContext`混合并匹配这样一个读取委派者，从不同的配置资源读取组件定义。
+
+而后你也可以使用`getBean`来重新获取组件的实例。`ApplicationContext`接口有有一些其他方法来获取组件，但理论上，你的应用代码不应使用他们。实际上，你的应用代码根本不应该调用getBean()方法。因此并不需要有任何Spring APIs。例如，Spring整合页面框架提供网站框架组件以依赖注入，例如控制层和JSF-管控的组件，让你通过元数据（例如 自动装配的注解 ）来声明依赖。
+
+
+### 1.3 Bean Overview 组件总览
+
+一个Spring 控制反转容器管理 一个或多个实例。这些组件通过你提供给容器的配置元数据。（例如，以XML`<bean/>`定义）。
+
+在容器内部，这些组件定义作为`BeanDefinition`对象，它包含如下元数据：
+
+一个明确包名的类名称：通常是：被定义组件的实际实现类。
+
+组件行为配置元素：它说明了组件应该在容器中如何表现它本身(作用域,生命周期调用等)。
+
+组件需要其他其引用的组件来进行工作。这些引用也被称为合作或是依赖。
+
+其他配置设置在新创建的对象-例如：池的大小或是在一个组件中使用的连接数来管理一个连接池。
+
+这些元数据转化为一系列的属性来组成每个组件定义。如下表格描述了这些属性：
+
+
+Table 1. The bean definition
+
+
+| Property	 | Explained in…​ | 
+| :------:| :------: | 
+| Class | [Instantiating Beans](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-class) | 
+| Name | [Naming Beans](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-beanname) | 
+| Scope | [Bean Scopes](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-scopes) | 
+| Constructor arguments | [Dependency Injection](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-collaborators) | 
+| Properties | [Dependency Injection](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-collaborators) | 
+| Autowiring mode | [Autowiring Collaborators](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-autowire) | 
+| Lazy initialization mode | [Lazy-initialized Beans](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lazy-init) | 
+| Initialization method | [Initialization Callbacks](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle-initializingbean) | 
+| Destruction method | [Destruction Callbacks](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle-disposablebean) | 
+
+
+
