@@ -270,4 +270,10 @@ Table 1. The bean definition
 | Destruction method | [Destruction Callbacks](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-lifecycle-disposablebean) | 
 
 
+除了组件定义包含了怎样去创建指定的组件，`ApplicationContext`实现类也允许用户自身创建的容器注册。通过应用上下文的组件工厂的`getBeanFactory`方法，来返回组件工厂`DefaultListableBeanFactory`实现。`DefaultListableBeanFactory`通过`registerSingleton(..)`方法来支持这个注册。然而，通常来说应用通过常规组件定义元数据来独自工作。
 
+> 组件元数据手工地提供有单一实例需要注册的越早越好，为了让容器在自动装配和内省步骤中更好的推断。当重载已存在的元数据和存在的单例实例来支持一些度和在运行时注册新的组件（同时保有接触工厂的权利）是非官方支持的。可能会引起多线程的异常，在组件容器中存在不一致的状态。
+
+#### 1.3.1 Naming Beans 命名组件
+
+每一个
