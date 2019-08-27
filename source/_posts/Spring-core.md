@@ -276,4 +276,4 @@ Table 1. The bean definition
 
 #### 1.3.1 Naming Beans 命名组件
 
-每一个
+
