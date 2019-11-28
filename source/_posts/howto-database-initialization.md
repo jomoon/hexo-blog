@@ -1,6 +1,6 @@
 ---
 title: howto-database-initialization
-date: 2019-08-28 09:18:12
+date: 2019-09-28 09:18:12
 categories:
 - translation
 - spring

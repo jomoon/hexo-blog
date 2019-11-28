@@ -1,6 +1,6 @@
 ---
 title: querydsl-4.1.4 translation
-date: 2019-08-09 10:29:55
+date: 2019-10-09 10:29:55
 tags:
 ---
 

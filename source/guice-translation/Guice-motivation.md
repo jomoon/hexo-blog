@@ -1,5 +1,6 @@
 ---
 title: Guice Translation
+date: 2019-09-14 10:29:55
 categories:
 - guice
 - translation

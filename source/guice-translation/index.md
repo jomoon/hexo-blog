@@ -1,6 +1,6 @@
 ---
 title: guice-translation
-date: 2019-07-30 19:28:54
+date: 2019-09-12 10:00:11
 ---
 
 1. [动机篇](https://jomoon.github.io/public/guice-translation/Guice-motivation.html)
