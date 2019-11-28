@@ -1,6 +1,6 @@
 ---
 title: howto-logging
-date: 2019-08-27 10:11:17
+date: 2019-11-27 10:11:17
 tags:
 categories:
 - logging
